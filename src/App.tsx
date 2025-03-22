@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Home } from "./pages/Home";
-import { Landing } from "./pages/Landing";
 import Header from "./components/common/Header";
+import Landing from "./pages/Landing";
 
 function App() {
   return (
