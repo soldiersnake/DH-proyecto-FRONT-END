@@ -6,6 +6,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import * as yup from "yup";
 import { auth, db } from "../../firebase/firebase";
+import { Input } from "../common/Input";
+import { Button } from "../common/Button";
 
 interface RegisterFormInputs {
   email: string;
@@ -78,81 +80,37 @@ const RegisterForm = () => {
 
         <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
           <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Nombre
-              </label>
-              <input
-                id="name"
-                type="text"
-                autoComplete="name"
-                {...register("name")}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Nombre"
-              />
-              {errors.name && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.name.message}
-                </p>
-              )}
-            </div>
+            <Input
+              register={register}
+              label={"Nombre"}
+              field={"name"}
+              placeholder={"Nombre"}
+              errors={errors?.name?.message}
+            />
 
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Correo electrónico
-              </label>
-              <input
-                id="surName"
-                type="text"
-                autoComplete="surName"
-                {...register("surName")}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Apellido"
-              />
-              {errors.surName && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.surName.message}
-                </p>
-              )}
-            </div>
+            <Input
+              register={register}
+              label={"Correo electrónico"}
+              field={"surName"}
+              placeholder={"Apellido"}
+              errors={errors?.surName?.message}
+            />
 
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Correo electrónico
-              </label>
-              <input
-                id="email"
-                type="email"
-                autoComplete="email"
-                {...register("email")}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Correo electrónico"
-              />
-              {errors.email && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.email.message}
-                </p>
-              )}
-            </div>
+            <Input
+              register={register}
+              label={"Correo electrónico"}
+              field={"email"}
+              placeholder={"Correo electrónico"}
+              errors={errors?.email?.message}
+            />
 
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Contraseña
-              </label>
-              <input
-                id="password"
-                type="password"
-                autoComplete="new-password"
-                {...register("password")}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Contraseña"
-              />
-              {errors.password && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.password.message}
-                </p>
-              )}
-            </div>
+            <Input
+              register={register}
+              label={"Contraseña"}
+              field={"password"}
+              placeholder={"Contraseña"}
+              errors={errors?.password?.message}
+            />
           </div>
 
           {errorMessage && (
@@ -161,15 +119,11 @@ const RegisterForm = () => {
             </div>
           )}
 
-          <div>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              {isSubmitting ? "Registrando..." : "Registrarse"}
-            </button>
-          </div>
+          <Button
+            type={"submit"}
+            text={isSubmitting ? "Registrando..." : "Registrarse"}
+            disabled={isSubmitting}
+          />
 
           <div className="text-sm text-center">
             ¿Ya tienes cuenta?{" "}
