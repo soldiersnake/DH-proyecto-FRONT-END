@@ -8,6 +8,7 @@ import Header from "./components/common/Header";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { PublicRoute } from "./components/PublicRoute";
 import { useAuth } from "./hooks/AuthContext";
+import Loader from "./components/common/Loader";
 
 const AppContent = () => {
   const { loading } = useAuth();
@@ -15,7 +16,7 @@ const AppContent = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <span className="text-gray-600 text-lg">Cargando sesión...</span>
+        <Loader />
       </div>
     );
   }
