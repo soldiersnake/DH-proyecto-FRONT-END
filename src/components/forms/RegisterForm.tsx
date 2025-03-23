@@ -9,6 +9,8 @@ import { auth, db } from "../../firebase/firebase";
 
 interface RegisterFormInputs {
   email: string;
+  name: string;
+  surName: string;
   password: string;
 }
 
@@ -17,6 +19,8 @@ const schema = yup.object({
     .string()
     .email("Formato de email inválido")
     .required("El email es obligatorio"),
+  name: yup.string().required("El nombre es obligatorio"),
+  surName: yup.string().required("El apellido es obligatorio"),
   password: yup
     .string()
     .required("La contraseña es obligatoria")
@@ -47,6 +51,8 @@ const RegisterForm = () => {
       // Guardar información adicional en Firestore
       await setDoc(doc(db, "users", userCredential.user.uid), {
         email: data.email,
+        name: data.name,
+        surName: data.surName,
         createdAt: new Date(),
       });
 
@@ -72,6 +78,44 @@ const RegisterForm = () => {
 
         <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
           <div className="rounded-md shadow-sm -space-y-px">
+            <div>
+              <label htmlFor="email" className="sr-only">
+                Nombre
+              </label>
+              <input
+                id="name"
+                type="text"
+                autoComplete="name"
+                {...register("name")}
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="Nombre"
+              />
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.name.message}
+                </p>
+              )}
+            </div>
+
+            <div>
+              <label htmlFor="email" className="sr-only">
+                Correo electrónico
+              </label>
+              <input
+                id="surName"
+                type="text"
+                autoComplete="surName"
+                {...register("surName")}
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="Apellido"
+              />
+              {errors.surName && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.surName.message}
+                </p>
+              )}
+            </div>
+
             <div>
               <label htmlFor="email" className="sr-only">
                 Correo electrónico

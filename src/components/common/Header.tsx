@@ -1,6 +1,16 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/AuthContext";
 
 export const Header = () => {
+  const navigate = useNavigate();
+
+  const { user, logoutUser } = useAuth();
+
+  const handleLogout = () => {
+    logoutUser();
+    navigate("/login");
+  };
+
   return (
     <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
       <nav className="container mx-auto px-4 flex justify-between items-center h-16">
@@ -11,25 +21,41 @@ export const Header = () => {
 
         {/* Navegación desktop/tablet */}
         <div className="hidden md:flex items-center gap-8">
-          <NavLink
-            to="/login"
-            className={({ isActive }) =>
-              isActive ? "text-indigo-600 font-semibold" : "text-gray-700"
-            }
-          >
-            Iniciar sesión
-          </NavLink>
-          <NavLink
-            to="/register"
-            className={({ isActive }) =>
-              isActive ? "text-indigo-600 font-semibold" : "text-gray-700"
-            }
-          >
-            Registrarse
-          </NavLink>
+          {!user ? (
+            <>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? "text-indigo-600 font-semibold" : "text-gray-700"
+                }
+              >
+                Iniciar sesión
+              </NavLink>
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  isActive ? "text-indigo-600 font-semibold" : "text-gray-700"
+                }
+              >
+                Registrarse
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <span className="text-gray-600">
+                Hola, {user.name ?? user.email}
+              </span>
+              <button
+                onClick={handleLogout}
+                className="text-red-500 hover:underline"
+              >
+                Cerrar sesión
+              </button>
+            </>
+          )}
         </div>
 
-        {/* Menú móvil */}
+        {/* Menú móvil (a completar más adelante si querés) */}
         <div className="md:hidden flex items-center">
           <button>
             <svg

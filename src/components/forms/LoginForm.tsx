@@ -1,14 +1,20 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  browserLocalPersistence,
+  browserSessionPersistence,
+  setPersistence,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
 import { LoginFormInputs, loginSchema } from "../../schemas/validation";
 
 const LoginForm = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [rememberMe, setRememberMe] = useState<boolean>(true); // Si queremos ser recordados en la session o no
   const {
     register,
     handleSubmit,
@@ -20,7 +26,14 @@ const LoginForm = () => {
   const onSubmit = async (data: LoginFormInputs) => {
     setErrorMessage(null);
     try {
+      // Establecer persistencia según el checkbox
+      const persistence = rememberMe
+        ? browserLocalPersistence
+        : browserSessionPersistence;
+      // Establecer persistencia antes de hacer login
+      await setPersistence(auth, persistence);
       await signInWithEmailAndPassword(auth, data.email, data.password);
+      // El AuthContext se encargará de detectar el login y cargar el usuario
       navigate("/home");
     } catch (error) {
       setErrorMessage("Email o contraseña incorrectos.");
@@ -76,6 +89,23 @@ const LoginForm = () => {
                 </p>
               )}
             </div>
+          </div>
+
+          {/* Recuérdame */}
+          <div className="flex items-center">
+            <input
+              id="rememberMe"
+              type="checkbox"
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+              className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+            />
+            <label
+              htmlFor="rememberMe"
+              className="ml-2 block text-sm text-gray-900"
+            >
+              Recuérdame
+            </label>
           </div>
 
           {errorMessage && (
