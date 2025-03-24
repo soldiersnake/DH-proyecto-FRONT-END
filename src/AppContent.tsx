@@ -9,11 +9,13 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { PublicRoute } from "./components/PublicRoute";
 import { useAuth } from "./hooks/AuthContext";
 import Loader from "./components/common/Loader";
-import { PaymentMethods } from "./components/Dashboard/PaymentMethods";
+
 import Dashboard from "./components/Dashboard/Dashboard";
-import { Card } from "./components/Dashboard/Card";
 import { Activity } from "./components/Dashboard/Activity";
 import Profile from "./components/Dashboard/Profile";
+import { PayService } from "./components/Dashboard/PayService";
+import { PaymentMethod } from "./components/Dashboard/paymentMethod";
+import AddCard from "./components/Dashboard/AddCard";
 
 const AppContent = () => {
   const { loading } = useAuth();
@@ -61,12 +63,13 @@ const AppContent = () => {
             <Route index element={<Dashboard />} />
             <Route path="activity" element={<Activity />} />
             <Route path="profile" element={<Profile />} />
-            <Route path="payments" element={<PaymentMethods />} />
+            <Route path="pay-service" element={<PayService />} />
             <Route
               path="carga-dinero"
               element={<div>Ingresar dinero (pendiente)</div>}
             />
-            <Route path="card" element={<Card />} />
+            <Route path="payment-method" element={<PaymentMethod />} />
+            <Route path="add-dard" element={<AddCard />} />
           </Route>
 
           {/* Ruta fallback */}

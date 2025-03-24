@@ -29,7 +29,7 @@ const Dashboard = () => {
             Cargar dinero
           </button>
           <button
-            onClick={() => navigate("/home/payments")}
+            onClick={() => navigate("/home/pay-service")}
             className="py-3 bg-lime-400 rounded-lg font-semibold hover:bg-lime-500 transition-colors"
           >
             Pago de servicios

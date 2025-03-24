@@ -24,10 +24,10 @@ const Sidebar = () => {
         <Link to="/home/carga-dinero" className="block text-gray-700">
           Carga Dinero
         </Link>
-        <Link to="/home/payments" className="block text-gray-700">
+        <Link to="/home/pay-service" className="block text-gray-700">
           Pagar de servicios
         </Link>
-        <Link to="/home/card" className="block text-gray-700">
+        <Link to="/home/payment-method" className="block text-gray-700">
           Tarjetas
         </Link>
         <button className="block text-red-600" onClick={logoutUser}>

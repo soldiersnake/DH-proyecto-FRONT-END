@@ -118,7 +118,7 @@ const Profile = () => {
       {/* Gestiona Medios de Pago */}
       <div
         className="bg-lime-400 cursor-pointer p-4 rounded-lg text-black font-bold flex justify-between items-center"
-        onClick={() => (window.location.href = "/home/payments")}
+        onClick={() => (window.location.href = "/home/payment-method")}
       >
         Gestioná los medios de pago <span className="text-xl">→</span>
       </div>
