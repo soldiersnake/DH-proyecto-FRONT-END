@@ -10,10 +10,10 @@ import { PublicRoute } from "./components/PublicRoute";
 import { useAuth } from "./hooks/AuthContext";
 import Loader from "./components/common/Loader";
 import { PaymentMethods } from "./components/Dashboard/PaymentMethods";
-import { Profile } from "./components/Dashboard/Profile";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { Card } from "./components/Dashboard/Card";
 import { Activity } from "./components/Dashboard/Activity";
+import Profile from "./components/Dashboard/Profile";
 
 const AppContent = () => {
   const { loading } = useAuth();

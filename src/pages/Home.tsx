@@ -10,7 +10,7 @@ export const Home = () => {
   return (
     <>
       <Sidebar />
-      <section className="flex-grow ml-64 p-6">
+      <section className="flex-grow  bg-gray-100 ml-64 p-10">
         <Outlet /> {/* Aquí se renderizarán Dashboard, Profile, etc */}
       </section>
     </>
