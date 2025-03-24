@@ -13,6 +13,7 @@ interface Card {
 export const PaymentMethod = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const MAX_CARDS = 10; // Límite máximo de tarjetas
 
   const [cards, setCards] = useState<Card[]>([]);
 
@@ -47,9 +48,15 @@ export const PaymentMethod = () => {
         <span className="text-white font-semibold">
           Agregá tu tarjeta de débito o crédito
         </span>
+
         <button
-          className="text-lime-400 font-bold"
-          onClick={() => navigate("/home/add-dard")}
+          className={`text-lime-400 font-bold ${
+            cards.length >= MAX_CARDS ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          onClick={() => {
+            if (cards.length < MAX_CARDS) navigate("/home/add-dard");
+          }}
+          disabled={cards.length >= MAX_CARDS}
         >
           ➕ Nueva tarjeta
         </button>

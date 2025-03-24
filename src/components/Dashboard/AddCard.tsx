@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useAuth } from "../../hooks/AuthContext";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -83,8 +83,16 @@ const AddCard = () => {
   };
 
   const onSubmit = async (data: any) => {
+    const MAX_CARDS = 10;
+
     try {
       const cardsRef = collection(db, `users/${user?.uid}/cards`);
+      const cardsSnapshot = await getDocs(cardsRef);
+
+      if (cardsSnapshot.size >= MAX_CARDS) {
+        toast.error("Has alcanzado el límite máximo de 10 tarjetas.");
+        return;
+      }
       await addDoc(cardsRef, data);
       toast.success("Tarjeta añadida correctamente");
       navigate("/home/payment-method");
