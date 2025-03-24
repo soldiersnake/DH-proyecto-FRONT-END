@@ -8,6 +8,7 @@ import * as yup from "yup";
 import { auth, db } from "../../firebase/firebase";
 import { Input } from "../common/Input";
 import { Button } from "../common/Button";
+import { generateCVU } from "../../services/utils";
 
 interface RegisterFormInputs {
   email: string;
@@ -50,11 +51,15 @@ const RegisterForm = () => {
         data.password
       );
 
+      const userCVU = generateCVU();
+
       // Guardar información adicional en Firestore
       await setDoc(doc(db, "users", userCredential.user.uid), {
         email: data.email,
         name: data.name,
         surName: data.surName,
+        cvu: userCVU,
+        alias: "sin.alias.definido",
         createdAt: new Date(),
       });
 

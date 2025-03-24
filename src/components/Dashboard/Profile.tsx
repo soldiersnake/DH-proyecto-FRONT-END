@@ -15,7 +15,7 @@ const Profile = () => {
     cuit: "",
     phone: "",
     password: "******",
-    cvu: "0000002100075320000000",
+    cvu: "",
     alias: "alias.ejemplo.usuario",
   });
 

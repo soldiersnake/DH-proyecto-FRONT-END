@@ -11,7 +11,7 @@ const Sidebar = () => {
           {user?.name} {user?.surName}
         </Link>
       </h2>
-      <nav className="mt-8 space-y-4">
+      <nav className="mt-14 space-y-4">
         <Link to="/home" className="block text-gray-700">
           Incio
         </Link>
