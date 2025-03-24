@@ -39,7 +39,7 @@ const schema = yup.object({
 const AddCard = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [focus, setFocus] = useState("");
+  const [focus, setFocus] = useState<any>("");
 
   const {
     register,
