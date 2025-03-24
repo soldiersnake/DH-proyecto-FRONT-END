@@ -66,6 +66,7 @@ const LoginForm = () => {
               register={register}
               label={"Contraseña"}
               field={"password"}
+              type={"password"}
               placeholder={"Contraseña"}
               errors={errors?.password?.message}
             />

@@ -1,3 +1,5 @@
+import { Outlet } from "react-router-dom";
+import Sidebar from "../components/Dashboard/Sidebar";
 import { useAuth } from "../hooks/AuthContext";
 import { Login } from "./Login";
 
@@ -7,8 +9,10 @@ export const Home = () => {
   if (!user) return <Login />;
   return (
     <>
-      <h2>Home</h2>
-      {user && <p> {user.name} </p>}
+      <Sidebar />
+      <section className="flex-grow ml-64 p-6">
+        <Outlet /> {/* Aquí se renderizarán Dashboard, Profile, etc */}
+      </section>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import AppContent from "./AuthProvider";
+import AppContent from "./AppContent";
 import { AuthProvider } from "./hooks/AuthContext";
 
 function App() {
