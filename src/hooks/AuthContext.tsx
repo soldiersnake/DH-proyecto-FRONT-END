@@ -15,6 +15,8 @@ interface UserData {
   token: string;
   name?: string;
   surName?: string;
+  cvu?: string;
+  alias?: string;
 }
 
 interface AuthContextType {

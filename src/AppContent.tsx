@@ -17,8 +17,8 @@ import { PayService } from "./components/Dashboard/PayService";
 import { PaymentMethod } from "./components/Dashboard/paymentMethod";
 import AddCard from "./components/Dashboard/AddCard";
 import IngresoDineroHome from "./components/Dashboard/IngresoDInero/IngresoDineroHome";
-import { TransferenciaMethod } from "./components/Dashboard/IngresoDInero/TransferenciaMethod";
-import { TarjetaMethod } from "./components/Dashboard/IngresoDInero/TarjetaMethod";
+import TransferenciaMethod from "./components/Dashboard/IngresoDInero/TransferenciaMethod";
+import TarjetaMethod from "./components/Dashboard/IngresoDInero/TarjetaMethod";
 
 const AppContent = () => {
   const { loading } = useAuth();
