@@ -54,7 +54,7 @@ export const PaymentMethod = () => {
             cards.length >= MAX_CARDS ? "opacity-50 cursor-not-allowed" : ""
           }`}
           onClick={() => {
-            if (cards.length < MAX_CARDS) navigate("/home/add-dard");
+            if (cards.length < MAX_CARDS) navigate("/home/add-card");
           }}
           disabled={cards.length >= MAX_CARDS}
         >

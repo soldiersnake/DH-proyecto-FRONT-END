@@ -16,6 +16,9 @@ import Profile from "./components/Dashboard/Profile";
 import { PayService } from "./components/Dashboard/PayService";
 import { PaymentMethod } from "./components/Dashboard/paymentMethod";
 import AddCard from "./components/Dashboard/AddCard";
+import IngresoDineroHome from "./components/Dashboard/IngresoDInero/IngresoDineroHome";
+import { TransferenciaMethod } from "./components/Dashboard/IngresoDInero/TransferenciaMethod";
+import { TarjetaMethod } from "./components/Dashboard/IngresoDInero/TarjetaMethod";
 
 const AppContent = () => {
   const { loading } = useAuth();
@@ -64,12 +67,11 @@ const AppContent = () => {
             <Route path="activity" element={<Activity />} />
             <Route path="profile" element={<Profile />} />
             <Route path="pay-service" element={<PayService />} />
-            <Route
-              path="carga-dinero"
-              element={<div>Ingresar dinero (pendiente)</div>}
-            />
+            <Route path="carga-dinero" element={<IngresoDineroHome />} />
+            <Route path="transferencia" element={<TransferenciaMethod />} />
+            <Route path="tarjeta" element={<TarjetaMethod />} />
             <Route path="payment-method" element={<PaymentMethod />} />
-            <Route path="add-dard" element={<AddCard />} />
+            <Route path="add-card" element={<AddCard />} />
           </Route>
 
           {/* Ruta fallback */}
