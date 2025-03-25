@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import _Logo from "../../public/Digital_modey-House.webp";
 import { useAuth } from "../hooks/AuthContext";
+import { Footer } from "../components/common/Footer";
 
 const Landing = () => {
   const { user } = useAuth();
@@ -68,12 +69,7 @@ const Landing = () => {
         </section>
       </main>
 
-      <footer className="bg-white border-t">
-        <div className="container mx-auto px-4 py-4 text-center text-gray-500 text-sm">
-          © {new Date().getFullYear()} Digital Money House. Todos los derechos
-          reservados.
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
