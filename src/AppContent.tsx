@@ -11,7 +11,6 @@ import { useAuth } from "./hooks/AuthContext";
 import Loader from "./components/common/Loader";
 
 import Dashboard from "./components/Dashboard/Dashboard";
-import { Activity } from "./components/Dashboard/Activity";
 import Profile from "./components/Dashboard/Profile";
 import { PayService } from "./components/Dashboard/PayService";
 import { PaymentMethod } from "./components/Dashboard/paymentMethod";
@@ -21,6 +20,7 @@ import TransferenciaMethod from "./components/Dashboard/IngresoDInero/Transferen
 import TarjetaMethod from "./components/Dashboard/IngresoDInero/TarjetaMethod";
 import IngresoMonto from "./components/Dashboard/IngresoDInero/IngresoMonto";
 import ResumenIngreso from "./components/Dashboard/IngresoDInero/ResumenIngreso";
+import Activity from "./components/Dashboard/Activity";
 
 const AppContent = () => {
   const { loading } = useAuth();
