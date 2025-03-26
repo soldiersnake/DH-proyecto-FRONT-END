@@ -122,7 +122,6 @@ const ResumenIngreso = () => {
             <button
               onClick={handleConfirm}
               className="btn-lime px-6 py-3 rounded-md font-semibold cursor-pointer"
-              //   style={{ backgroundColor: "#a3e635", color: "#000000" }}
             >
               Continuar
             </button>
@@ -132,14 +131,12 @@ const ResumenIngreso = () => {
             <button
               onClick={() => navigate("/home")}
               className="btn-gray px-6 py-3 rounded-lg font-semibold cursor-pointer"
-              //   style={{ backgroundColor: "#d1d5db", color: "#000000" }}
             >
               Ir al inicio
             </button>
             <button
               onClick={() => downloadReceipt()}
               className="btn-lime px-6 py-3 rounded-md font-semibold cursor-pointer"
-              //   style={{ backgroundColor: "#a3e635", color: "#000" }}
             >
               Descargar comprobante
             </button>
