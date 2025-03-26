@@ -1,1 +1,19 @@
 @import "tailwindcss";
+.btn-lime {
+  background-color: #a3e635;
+  color: #000000;
+  transition: background-color 0.3s ease;
+}
+
+.btn-lime:hover {
+  background-color: #bef264;
+}
+.btn-gray {
+  background-color: #d1d5db;
+  color: #000000;
+  transition: background-color 0.3s ease;
+}
+
+.btn-gray:hover {
+  background-color: #9d9ea2; /* un gris más claro */
+}

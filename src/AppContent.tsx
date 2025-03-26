@@ -19,6 +19,8 @@ import AddCard from "./components/Dashboard/AddCard";
 import IngresoDineroHome from "./components/Dashboard/IngresoDInero/IngresoDineroHome";
 import TransferenciaMethod from "./components/Dashboard/IngresoDInero/TransferenciaMethod";
 import TarjetaMethod from "./components/Dashboard/IngresoDInero/TarjetaMethod";
+import IngresoMonto from "./components/Dashboard/IngresoDInero/IngresoMonto";
+import ResumenIngreso from "./components/Dashboard/IngresoDInero/ResumenIngreso";
 
 const AppContent = () => {
   const { loading } = useAuth();
@@ -71,6 +73,8 @@ const AppContent = () => {
             <Route path="transferencia" element={<TransferenciaMethod />} />
             <Route path="tarjeta" element={<TarjetaMethod />} />
             <Route path="payment-method" element={<PaymentMethod />} />
+            <Route path="cargar-dinero/monto" element={<IngresoMonto />} />
+            <Route path="cargar-dinero/resumen" element={<ResumenIngreso />} />
             <Route path="add-card" element={<AddCard />} />
           </Route>
 
