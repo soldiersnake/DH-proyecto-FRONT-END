@@ -60,7 +60,7 @@ export const PayService = () => {
             </div>
             <button
               onClick={() =>
-                navigate("/home/pay-service/formulario", {
+                navigate("/home/pay-service-service-form", {
                   state: { service },
                 })
               }

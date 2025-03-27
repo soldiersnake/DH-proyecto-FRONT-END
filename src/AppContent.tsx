@@ -21,6 +21,8 @@ import IngresoMonto from "./components/Dashboard/IngresoDInero/IngresoMonto";
 import ResumenIngreso from "./components/Dashboard/IngresoDInero/ResumenIngreso";
 import Activity from "./components/Dashboard/Activity";
 import { PayService } from "./components/Dashboard/pagarServicios/PayService";
+import PayServiceForm from "./components/Dashboard/pagarServicios/PayServiceForm";
+import PayServiceResumen from "./components/Dashboard/pagarServicios/PayServiceResumen";
 
 const AppContent = () => {
   const { loading } = useAuth();
@@ -69,6 +71,11 @@ const AppContent = () => {
             <Route path="activity" element={<Activity />} />
             <Route path="profile" element={<Profile />} />
             <Route path="pay-service" element={<PayService />} />
+            <Route
+              path="pay-service-service-form"
+              element={<PayServiceForm />}
+            />
+            <Route path="pay-service-resumen" element={<PayServiceResumen />} />
             <Route path="carga-dinero" element={<IngresoDineroHome />} />
             <Route path="transferencia" element={<TransferenciaMethod />} />
             <Route path="tarjeta" element={<TarjetaMethod />} />
