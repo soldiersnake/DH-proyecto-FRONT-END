@@ -4,7 +4,7 @@ Esta es una aplicación desarrollada como parte del proyecto final del curso de 
 
 ---
 
-- **[URL Versel](https://dh-proyecto-front-end.vercel.app/)**
+## 💎 **[URL Versel](https://dh-proyecto-front-end.vercel.app/)**
 
 ## 🚀 Tecnologías utilizadas
 
