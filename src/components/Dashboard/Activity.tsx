@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { useAuth } from "../../hooks/AuthContext";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, Timestamp } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import { db } from "../../firebase/firebase";
+import { useAuth } from "../../hooks/AuthContext";
 
 const Activity = () => {
   const { user } = useAuth();
@@ -85,10 +85,15 @@ const Activity = () => {
       if (!user) return;
       const activityRef = collection(db, `users/${user.uid}/activity`);
       const snapshot = await getDocs(activityRef);
-      const data = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
+      const data = snapshot.docs
+        .map((doc) => {
+          const docData = doc.data() as { date: Timestamp };
+          return {
+            id: doc.id,
+            ...docData,
+          };
+        })
+        .sort((a, b) => b.date.toDate().getTime() - a.date.toDate().getTime());
       setActivities(data);
     };
 
@@ -136,9 +141,11 @@ const Activity = () => {
           >
             <div className="flex items-center gap-2">
               <div
-                style={{ backgroundColor: "#ccff00" }}
+                style={{
+                  backgroundColor: activity.amount > 0 ? "#ccff00" : "#ef4444", // verde lima o rojo
+                }}
                 className="w-4 h-4 rounded-full"
-              ></div>
+              />
               <span>
                 {activity.destination === "Cuenta propia"
                   ? "Ingresaste dinero"
@@ -149,7 +156,14 @@ const Activity = () => {
               <p className="text-sm text-gray-600">
                 -${activity.amount?.toFixed(2)}
               </p>
-              <p className="text-xs text-gray-400">sábado</p>
+              <p className="text-xs text-gray-400">
+                {new Intl.DateTimeFormat("es-ES", {
+                  weekday: "long",
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                }).format(activity.date.toDate())}
+              </p>
             </div>
           </div>
         ))}

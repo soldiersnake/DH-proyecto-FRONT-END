@@ -23,6 +23,8 @@ import Activity from "./components/Dashboard/Activity";
 import { PayService } from "./components/Dashboard/pagarServicios/PayService";
 import PayServiceForm from "./components/Dashboard/pagarServicios/PayServiceForm";
 import PayServiceResumen from "./components/Dashboard/pagarServicios/PayServiceResumen";
+import PaymentError from "./components/Dashboard/pagarServicios/PayError";
+import NotFound from "./components/NotFound";
 
 const AppContent = () => {
   const { loading } = useAuth();
@@ -57,6 +59,7 @@ const AppContent = () => {
               </PublicRoute>
             }
           />
+          <Route path="*" element={<NotFound />} />
 
           <Route
             path="/home"
@@ -76,6 +79,7 @@ const AppContent = () => {
               element={<PayServiceForm />}
             />
             <Route path="pay-service-resumen" element={<PayServiceResumen />} />
+            <Route path="payment-error" element={<PaymentError />} />
             <Route path="carga-dinero" element={<IngresoDineroHome />} />
             <Route path="transferencia" element={<TransferenciaMethod />} />
             <Route path="tarjeta" element={<TarjetaMethod />} />
@@ -83,10 +87,9 @@ const AppContent = () => {
             <Route path="cargar-dinero/monto" element={<IngresoMonto />} />
             <Route path="cargar-dinero/resumen" element={<ResumenIngreso />} />
             <Route path="add-card" element={<AddCard />} />
+            {/* Ruta fallback */}
+            <Route path="*" element={<NotFound />} />
           </Route>
-
-          {/* Ruta fallback */}
-          <Route path="*" element={<div>404 | Página no encontrada</div>} />
         </Routes>
       </main>
     </BrowserRouter>

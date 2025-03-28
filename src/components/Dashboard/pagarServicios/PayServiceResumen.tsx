@@ -65,6 +65,7 @@ const PayServiceResumen = () => {
     } catch (error) {
       toast.error("Error al registrar el pago");
       console.error(error);
+      navigate("/home/payment-error");
     }
   };
 
