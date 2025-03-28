@@ -95,6 +95,7 @@ const Activity = () => {
         })
         .sort((a, b) => b.date.toDate().getTime() - a.date.toDate().getTime());
       setActivities(data);
+      console.log("data desde actividad :", data);
     };
 
     fetchActivity();

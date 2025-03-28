@@ -10,7 +10,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../firebase/firebase"; // ajustá el path
 
 interface UserData {
-  uid: string;
+  uid?: string;
   email: string;
   token: string;
   name?: string;
