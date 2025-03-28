@@ -64,6 +64,54 @@ Esta es una aplicación desarrollada como parte del proyecto final del curso de 
    npm run dev
    ```
 
+---
+
+## 🐳 Docker & Despliegue local
+
+Este proyecto está preparado para ejecutarse dentro de un contenedor Docker usando Nginx como servidor estático.
+
+### Archivos incluidos:
+
+- Dockerfile: construye la app y copia el contenido de dist a un servidor Nginx.
+
+- docker-compose.yml: define el servicio digital-wallet expuesto en el puerto 3000.
+
+### Pasos para ejecutar:
+
+```bash
+   docker-compose up --build
+```
+
+Esto ejecutará los siguientes pasos:
+
+- Construcción del proyecto (npm install && npm run build)
+
+- Copiado de archivos a /usr/share/nginx/html
+
+- Exposición en http://localhost:3000
+
+### Verificación
+
+Podés acceder desde tu navegador:
+
+```bash
+http://localhost:3000
+```
+
+O verificar el estado del contenedor desde Docker Desktop:
+
+- Contenedor: digital-wallet
+
+- Imagen: dh-proyecto-front-end
+
+### Parar contenedor:
+
+```bash
+docker-compose down
+```
+
+---
+
 ## 🧪 Deploy automático con Vercel
 
 El proyecto está conectado a Vercel para realizar **deploys automáticos** con cada commit a la rama principal. Esto permite un flujo de desarrollo ágil y continuo.
