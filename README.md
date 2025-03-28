@@ -1,54 +1,38 @@
-# React + TypeScript + Vite
+# 💸 DH Wallet - App de gestión financiera personal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta es una aplicación desarrollada como parte del proyecto final del curso de Frontend en Digital House. Permite a los usuarios gestionar su dinero, cargar fondos, pagar servicios, consultar movimientos y administrar sus medios de pago de forma intuitiva y segura.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías utilizadas
 
-## Expanding the ESLint configuration
+- **⚡ Vite** – Motor de desarrollo rápido con hot-reload.
+- **🔥 Firebase** – Autenticación y base de datos en tiempo real (Firestore).
+- **🔐 Firebase Auth** – Reemplazo a la API provista por DH, que no funcionaba correctamente.
+- **🎨 TailwindCSS** – Framework de estilos para una UI moderna, responsiva y limpia.
+- **☁️ Vercel** – Deploy automático con integración continua (CI), escuchando los commits de Git.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🔧 Funcionalidades principales
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- 📲 **Registro e inicio de sesión** con autenticación Firebase.
+- 💳 **Administración de tarjetas**: Agregar y seleccionar tarjetas para pagos.
+- 💰 **Carga de dinero** a cuenta.
+- 📤 **Pago de servicios** con simulación de entidades reales (Claro, Personal, etc.).
+- 📊 **Vista de actividad**: Últimos movimientos, con filtros y buscador.
+- 🧾 **Resumen de cuenta** con saldo disponible calculado automáticamente.
+- 📋 **Visualización y copiado de CVU y alias** para transferencias.
+- 🛠️ **Perfil editable**: Campos básicos como nombre, apellido, CUIT y teléfono.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## ⚙️ Instalación y uso local
+
+1. Cloná el repositorio:
+   ```bash
+   git clone https://github.com/soldiersnake/DH-proyecto-FRONT-END.git
+   cd DH-proyecto-FRONT-END
+   npm install
+   npm run dev
+   ```
