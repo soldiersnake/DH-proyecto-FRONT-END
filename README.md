@@ -38,13 +38,13 @@ Esta es una aplicación desarrollada como parte del proyecto final del curso de 
    cd DH-proyecto-FRONT-END
    ```
 
-   2. Instalá las dependencias:
+2. Instalá las dependencias:
 
    ```bash
    npm install
    ```
 
-   3. Agregá tus credenciales de Firebase en el archivo `firebase.ts`:
+3. Agregá tus credenciales de Firebase en el archivo `firebase.ts` o por .env:
 
    ```ts
    const firebaseConfig = {
@@ -58,7 +58,7 @@ Esta es una aplicación desarrollada como parte del proyecto final del curso de 
    };
    ```
 
-   4. Ejecutá la app localmente:
+4. Ejecutá la app localmente:
 
    ```bash
    npm run dev
