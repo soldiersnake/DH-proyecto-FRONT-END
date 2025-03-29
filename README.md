@@ -112,6 +112,30 @@ docker-compose down
 
 ---
 
+## Testing
+
+Los tests fueron implementados usando **Vitest** y **React Testing Library**.
+
+### ¿Qué se testea?
+
+- Renderizado del título del Dashboard y botones:
+
+  - ✅ Verifica que se muestre "Dinero disponible"
+  - ✅ El botón "Ver tarjetas" está presente y se puede clickear
+  - ✅ El botón "Ingresar dinero" está presente y se puede clickear
+
+- Comportamiento del Login:
+  - ✅ Muestra errores de validación si no se completan los campos
+  - ✅ Verifica que los mensajes estén definidos por Yup
+
+### Ejecutar los tests
+
+```bash
+npx vitest run
+```
+
+---
+
 ## 🧪 Deploy automático con Vercel
 
 El proyecto está conectado a Vercel para realizar **deploys automáticos** con cada commit a la rama principal. Esto permite un flujo de desarrollo ágil y continuo.
